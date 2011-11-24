@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<title>Rafa Marques - Canvas</title>
+		<script type="text/javascript" src="jquery/jquery-1.7.min.js"></script>
+		<script type="text/javascript" src="js/Player.js"></script>
+		<script type="text/javascript">
+			player = new Player();
+			
+			function init() {
+				player.Init();
+			}
+			
+			$(document).keydown(onKeyDown);
+			$(document).keyup(onKeyUp);
+			
+			function onKeyDown(evt) {
+				player.KeyDown(evt);
+			}
+			
+			function onKeyUp(evt) {
+				player.KeyUp(evt);
+			}
+		</script>
+		<style type="text/css">
+			#canvas {
+				border: 1px solid #000;
+			}
+		</style>
+	</head>
+	<body onload="init()">
+		<canvas id="canvas" width="500" height="500"></canvas>
+	</body>
+</html>
