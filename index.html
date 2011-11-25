@@ -10,6 +10,7 @@
 			
 			function init() {
 				player.Init();
+				player.init();
 			}
 			
 			$(document).keydown(onKeyDown);
@@ -17,10 +18,12 @@
 			
 			function onKeyDown(evt) {
 				player.KeyDown(evt);
+				player.keyDown(evt);
 			}
 			
 			function onKeyUp(evt) {
 				player.KeyUp(evt);
+				player.keyUp(evt);
 			}
 		</script>
 		<style type="text/css">

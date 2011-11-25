@@ -14,11 +14,14 @@ var Player = function() {
 }
 
 Player.prototype.Init = function() {
+Player.prototype.init = function() {
 	this.ctx = $('#canvas')[0].getContext("2d");
 	this.SpielerZeichnen();
+	this.drawPlayer();
 }
 
 Player.prototype.SpielerZeichnen = function() {
+Player.prototype.drawPlayer = function() {
 	this.ctx.clearRect(0, 0, this.feldBreite, this.feldHoehe);
 	this.ctx.beginPath();
 	this.ctx.arc(this.x, this.y, this.radius, 0, Math.PI*2, true);
@@ -27,6 +30,7 @@ Player.prototype.SpielerZeichnen = function() {
 }
 
 Player.prototype.SpielerBewegen = function() {
+Player.prototype.movePlayer = function() {
 	
 	if (this.rechts) {
 		if (!(this.x >= (this.feldBreite - this.radius))) {
@@ -53,9 +57,11 @@ Player.prototype.SpielerBewegen = function() {
 	}
 	
 	this.SpielerZeichnen();
+	this.drawPlayer();
 }
 
 Player.prototype.KeyDown = function(evt) {
+Player.prototype.keyDown = function(evt) {
 	switch(evt.keyCode) {
 		case 37:
 			this.links = true;
@@ -71,10 +77,12 @@ Player.prototype.KeyDown = function(evt) {
 			break;
 	}
 	this.SpielerBewegen();
+	this.movePlayer();
 	
 }
 
 Player.prototype.KeyUp = function(evt) {
+Player.prototype.keyUp = function(evt) {
 	switch(evt.keyCode) {
 		case 37:
 			this.links = false;
