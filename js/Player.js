@@ -13,14 +13,11 @@ var Player = function() {
 	this.hoch = false;
 }
 
-Player.prototype.Init = function() {
 Player.prototype.init = function() {
 	this.ctx = $('#canvas')[0].getContext("2d");
-	this.SpielerZeichnen();
 	this.drawPlayer();
 }
 
-Player.prototype.SpielerZeichnen = function() {
 Player.prototype.drawPlayer = function() {
 	this.ctx.clearRect(0, 0, this.feldBreite, this.feldHoehe);
 	this.ctx.beginPath();
@@ -29,7 +26,6 @@ Player.prototype.drawPlayer = function() {
 	this.ctx.fill();
 }
 
-Player.prototype.SpielerBewegen = function() {
 Player.prototype.movePlayer = function() {
 	
 	if (this.rechts) {
@@ -56,11 +52,9 @@ Player.prototype.movePlayer = function() {
 		}	
 	}
 	
-	this.SpielerZeichnen();
 	this.drawPlayer();
 }
 
-Player.prototype.KeyDown = function(evt) {
 Player.prototype.keyDown = function(evt) {
 	switch(evt.keyCode) {
 		case 37:
@@ -76,12 +70,10 @@ Player.prototype.keyDown = function(evt) {
 			this.runter = true;
 			break;
 	}
-	this.SpielerBewegen();
 	this.movePlayer();
 	
 }
 
-Player.prototype.KeyUp = function(evt) {
 Player.prototype.keyUp = function(evt) {
 	switch(evt.keyCode) {
 		case 37:

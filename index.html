@@ -9,7 +9,6 @@
 			player = new Player();
 			
 			function init() {
-				player.Init();
 				player.init();
 			}
 			
@@ -17,12 +16,10 @@
 			$(document).keyup(onKeyUp);
 			
 			function onKeyDown(evt) {
-				player.KeyDown(evt);
 				player.keyDown(evt);
 			}
 			
 			function onKeyUp(evt) {
-				player.KeyUp(evt);
 				player.keyUp(evt);
 			}
 		</script>
