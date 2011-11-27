@@ -1,12 +1,21 @@
 var Player = function() {
+	// Spielfeld Eigenschaften
 	this.feldBreite = 500;
 	this.feldHoehe = 500;
+	
+	// Eigenschaften vom Spieler 
 	this.radius = 10;
 	this.x = 150;
 	this.y = 150;
 	this.xspeed = 5;
 	this.yspeed = 5;
+	this.leben = 5;
+	this.punkte = 0;
+	
+	// Das Canvas Element 
 	this.ctx;
+	
+	// Spieler bewegen
 	this.rechts = false;
 	this.links = false;
 	this.runter = false;
@@ -90,5 +99,22 @@ Player.prototype.keyUp = function(evt) {
 			break;
 	}
 } 
+
+Player.prototype.getLeben = function() {
+	return this.leben;
+}
+
+Player.prototype.addLeben = function() {
+	this.leben++;
+}
+
+Player.prototype.looseLeben = function() {
+	this.leben--;
+}
+
+
+Player.prototype.getPunkte = function() {
+	return this.punkte;
+}
 
 
