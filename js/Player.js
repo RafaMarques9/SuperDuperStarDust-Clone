@@ -1,3 +1,4 @@
+// Test
 var Player = function() {
 	// Spielfeld Eigenschaften
 	this.feldBreite = 500;
