@@ -1,10 +1,12 @@
-// Test
+/*
+* The Player Class
+*/
 var Player = function() {
-	// Spielfeld Eigenschaften
+	// TODO: This is not part of the player class anymore! GameField Class
 	this.feldBreite = 500;
 	this.feldHoehe = 500;
 	
-	// Eigenschaften vom Spieler 
+	// the attributes of the Player 
 	this.radius = 10;
 	this.x = 150;
 	this.y = 150;
@@ -13,21 +15,28 @@ var Player = function() {
 	this.leben = 5;
 	this.punkte = 0;
 	
-	// Das Canvas Element 
+	// The Canvas element to draw the player 
 	this.ctx;
 	
-	// Spieler bewegen
+	// TODO: This is not part of the player class anymore! Controller Class
 	this.rechts = false;
 	this.links = false;
 	this.runter = false;
 	this.hoch = false;
 }
 
+/*
+* This Method saves the Canvas element to use it in the future
+* and fires the drawPlayer() Method
+*/
 Player.prototype.init = function() {
 	this.ctx = $('#canvas')[0].getContext("2d");
 	this.drawPlayer();
 }
 
+/*
+* This Method is used to clear the field and to draw the Player on it
+*/
 Player.prototype.drawPlayer = function() {
 	this.ctx.clearRect(0, 0, this.feldBreite, this.feldHoehe);
 	this.ctx.beginPath();
@@ -36,6 +45,11 @@ Player.prototype.drawPlayer = function() {
 	this.ctx.fill();
 }
 
+/*
+* TODO: This Method is not part of this class anymore! PlayerMove Class
+* This Method is launched when a key is pressed. Than it moves the Player x and y coordinates
+* and launches the drawPlayer() Method
+*/
 Player.prototype.movePlayer = function() {
 	
 	if (this.rechts) {
@@ -65,6 +79,11 @@ Player.prototype.movePlayer = function() {
 	this.drawPlayer();
 }
 
+/*
+* TODO: This Method is not part of this class anymore! Controller Class
+* When a Key is pressed this Method gets the Key and set's the corresponding Variable to true
+* and launches the movePlayer() Method 
+*/
 Player.prototype.keyDown = function(evt) {
 	switch(evt.keyCode) {
 		case 37:
@@ -84,6 +103,10 @@ Player.prototype.keyDown = function(evt) {
 	
 }
 
+/*
+* TODO: This Method is not part of this class anymore! Controller Class
+* When the pressed key is released this Method set's the corresponding Variable to false 
+*/
 Player.prototype.keyUp = function(evt) {
 	switch(evt.keyCode) {
 		case 37:
@@ -101,19 +124,30 @@ Player.prototype.keyUp = function(evt) {
 	}
 } 
 
+/*
+* returns the life of the player
+*/
 Player.prototype.getLeben = function() {
 	return this.leben;
 }
 
+/*
+* adds a life to the player
+*/
 Player.prototype.addLeben = function() {
 	this.leben++;
 }
 
+/*
+* removes one life of the player
+*/
 Player.prototype.looseLeben = function() {
 	this.leben--;
 }
 
-
+/*
+* returns the points of the player
+*/
 Player.prototype.getPunkte = function() {
 	return this.punkte;
 }

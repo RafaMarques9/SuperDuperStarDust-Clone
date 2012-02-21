@@ -6,16 +6,19 @@
 		<script type="text/javascript" src="jquery/jquery-1.7.min.js"></script>
 		<script type="text/javascript" src="js/Player.js"></script>
 		<script type="text/javascript">
-			// Test
+			// Creates a new Player
 			player = new Player();
 			
+			// Draws the new Player to the field
 			function init() {
 				player.init();
 			}
 			
+			// jQuery Methode to get the controlls
 			$(document).keydown(onKeyDown);
 			$(document).keyup(onKeyUp);
 			
+			// Sending the pressed Key to the Player class
 			function onKeyDown(evt) {
 				player.keyDown(evt);
 			}
@@ -23,6 +26,8 @@
 			function onKeyUp(evt) {
 				player.keyUp(evt);
 			}
+			
+			
 		</script>
 		<style type="text/css">
 			#canvas {
