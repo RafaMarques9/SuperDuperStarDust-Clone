@@ -18,7 +18,7 @@ var Player = function() {
 	// The Canvas element to draw the player 
 	this.ctx;
 	
-	// TODO: This is not part of the player class anymore! Controller Class
+	// TODO: This is not part of the player class anymore! Controlles Class
 	this.rechts = false;
 	this.links = false;
 	this.runter = false;
@@ -80,7 +80,7 @@ Player.prototype.movePlayer = function() {
 }
 
 /*
-* TODO: This Method is not part of this class anymore! Controller Class
+* TODO: This Method is not part of this class anymore! Controlles Class
 * When a Key is pressed this Method gets the Key and set's the corresponding Variable to true
 * and launches the movePlayer() Method 
 */
@@ -104,7 +104,7 @@ Player.prototype.keyDown = function(evt) {
 }
 
 /*
-* TODO: This Method is not part of this class anymore! Controller Class
+* TODO: This Method is not part of this class anymore! Controlles Class
 * When the pressed key is released this Method set's the corresponding Variable to false 
 */
 Player.prototype.keyUp = function(evt) {
