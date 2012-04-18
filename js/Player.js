@@ -10,8 +10,8 @@ var Player = function() {
 	this.radius = 10;
 	this.x = 150;
 	this.y = 150;
-	this.xspeed = 5;
-	this.yspeed = 5;
+	this.xspeed = 8;
+	this.yspeed = 8;
 	this.leben = 5;
 	this.punkte = 0;
 	
@@ -26,21 +26,19 @@ var Player = function() {
 }
 
 /*
-* This Method saves the Canvas element to use it in the future
-* and fires the drawPlayer() Method
-*/
-Player.prototype.init = function() {
-	this.ctx = $('#canvas')[0].getContext("2d");
-	this.drawPlayer();
-}
-
-/*
 * This Method is used to clear the field and to draw the Player on it
 */
 Player.prototype.drawPlayer = function() {
 	this.ctx.clearRect(0, 0, this.feldBreite, this.feldHoehe);
 	this.ctx.beginPath();
 	this.ctx.arc(this.x, this.y, this.radius, 0, Math.PI*2, true);
+	this.ctx.closePath();
+	this.ctx.fill();
+}
+
+Player.prototype.clearField = function() {
+	this.ctx.beginPath();
+	this.ctx.rect(0, 0, this.feldBreite, this.feldHoehe);
 	this.ctx.closePath();
 	this.ctx.fill();
 }
@@ -75,7 +73,7 @@ Player.prototype.movePlayer = function() {
 			this.y += this.yspeed;
 		}	
 	}
-	
+	this.clearField();
 	this.drawPlayer();
 }
 
@@ -100,7 +98,6 @@ Player.prototype.keyDown = function(evt) {
 			break;
 	}
 	this.movePlayer();
-	
 }
 
 /*
@@ -150,6 +147,15 @@ Player.prototype.looseLeben = function() {
 */
 Player.prototype.getPunkte = function() {
 	return this.punkte;
+}
+
+/*
+* This Method saves the Canvas element to use it in the future
+* and fires the drawPlayer() Method
+*/
+Player.prototype.init = function() {
+	this.ctx = $('#canvas')[0].getContext("2d");
+	this.drawPlayer();
 }
 
 
