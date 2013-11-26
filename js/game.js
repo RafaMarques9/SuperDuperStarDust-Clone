@@ -48,10 +48,11 @@ game.prototype.main = function() {
 * This function simple draw's the hero to the field
 */
 game.prototype.draw = function() {
+    this.ctx.clearRect(0, 0, 600, 400);
 	this.ctx.drawImage(this.heroImage, this.hero.x, this.hero.y);
-	if(this.hero.shootFired) {
+	/*if(this.hero.shootFired) {
 		this.ctx.drawImage(this.shootImage, this.shoot.x, this.shoot.y);
-	}
+	}*/
 }
 
 /*
