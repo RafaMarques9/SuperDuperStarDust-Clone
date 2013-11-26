@@ -50,9 +50,9 @@ game.prototype.main = function() {
 game.prototype.draw = function() {
     this.ctx.clearRect(0, 0, 600, 400);
 	this.ctx.drawImage(this.heroImage, this.hero.x, this.hero.y);
-	/*if(this.hero.shootFired) {
+	if(this.hero.shootFired) {
 		this.ctx.drawImage(this.shootImage, this.shoot.x, this.shoot.y);
-	}*/
+	}
 }
 
 /*
@@ -139,12 +139,11 @@ game.prototype.shootFire = function(fire) {
 		console.log("X: " + this.shoot.x);
 		console.log("Y: " + this.shoot.y);
 		game.draw();
-		/*
 		while(this.shoot.x > 0) {
 			game.draw();
-			setTimeout('', 5000);
+			setTimeout('', 500000);
 			this.shoot.x--;
-		} */
+		}
 	}
 }
 
