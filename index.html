@@ -1,17 +1,14 @@
 <!DOCTYPE html>
-
 <html>
 	<head>
-		<title>Rafa Marques - Canvas</title>
-		<script type="text/javascript" src="jquery/jquery-1.7.min.js"></script>
-		<script type="text/javascript" src="js/Player.js"></script>
+		<title>Rafa Canvas Experiment</title>
+		<script type="text/javascript" src="js/jquery-1.7.min.js"></script>
+		<script type="text/javascript" src="js/game.js"></script>
 		<script type="text/javascript">
-			// Creates a new Player
-			player = new Player();
+			game = new game();
 			
-			// Draws the new Player to the field
 			function init() {
-				player.init();
+				game.main();
 			}
 			
 			// jQuery Methode to get the controlls
@@ -20,22 +17,20 @@
 			
 			// TODO: The pressed Key is sended to the, yet to be finished, Controller Class
 			function onKeyDown(evt) {
-				player.keyDown(evt);
+				game.keyDown(evt);
 			}
 			
 			function onKeyUp(evt) {
-				player.keyUp(evt);
+				game.keyUp(evt);
 			}
-			
-			
 		</script>
 		<style type="text/css">
-			#canvas {
-				border: 1px solid #000;
+			#playground {
+				border: 1px solid #FF0000;
 			}
 		</style>
 	</head>
-	<body onload="init()">
-		<canvas id="canvas" width="500" height="500"></canvas>
+	<body onload="init();">
+		<canvas id="playground" width="600" height="400"></canvas>
 	</body>
 </html>
